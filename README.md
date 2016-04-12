@@ -1,2 +1,2 @@
 # medicotechnical
-All about the technicomedical issues
+All about the technicomedical issues.

@@ -1,5 +1,4 @@
-# Name
-[FCT-sensing_emitting]()
+# [FCT-sensing_emitting]() function
 ![](viewme.jpg)
 
 # Title

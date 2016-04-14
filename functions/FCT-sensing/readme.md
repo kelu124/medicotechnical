@@ -1,4 +1,4 @@
-# xxx[FCT-sensing]() function 
+# [FCT-sensing]() function 
 ![](viewme.jpg)
 
 ## Title

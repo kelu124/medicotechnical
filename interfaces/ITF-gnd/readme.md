@@ -1,9 +1,2 @@
-# Name
-[ITF-gnd]
-
-# Title
+#ITF-gnd
 Ground
-
-# Description
-
----

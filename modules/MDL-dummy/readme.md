@@ -1,10 +1,4 @@
-# Name
-[MDL-dummy]()
+# MDL-dummy
 
-![](viewme.jpg)
-
-# Title
-
-# Description
-# Uses
+## Uses
 [ITF-gnd](../../interfaces/ITF-gnd/readme.md) : 0v reference.

@@ -1,4 +1,4 @@
-# [MDL-alimentation_high_voltage]() function
+# [MDL-alimentation_high_voltage]() module
 ![](viewme.jpg)
 
 ## Title

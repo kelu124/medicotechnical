@@ -1,8 +1,8 @@
-# [MDL-alimentation_high_voltage]() module
+# [MDL-backplane]() module
 ![](viewme.jpg)
 
 ## Title
-High voltage (-100v) alimentation
+Backplane card
 
 ## Description
 

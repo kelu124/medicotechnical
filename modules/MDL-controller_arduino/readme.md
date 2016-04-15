@@ -1,8 +1,8 @@
-# [MDL-backplane]() module
+# [MDL-controller_arduino]() module
 ![](viewme.jpg)
 
 ## Title
-Backplane card
+Arduino µC with E/S for driving CC motor
 
 ## Description
 

@@ -10,8 +10,8 @@ Low voltage (+5v, +3.3v, ...) alimentation
 * external +5v
 
 ## Produce
-* [ITF-10-gnd](../../interfaces/ITF-10-gnd)
-* [ITF-30-5_v](../../interfaces/ITF-30-5_v)
+* [ITF-10_gnd](../../interfaces/ITF-10-gnd)
+* [ITF-29_5_v](../../interfaces/ITF-30-5_v)
 
 ## Functions
 * TODO, ex : [FCT-sensing](../../functions/FCT-sensing)

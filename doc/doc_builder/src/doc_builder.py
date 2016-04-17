@@ -49,7 +49,11 @@ if __name__ == "__main__":
             re_obj = re.search(r"^## Title", lines[i])
             if re_obj:
               print(lines[i+1])
-              out += "|_" + lines[i+1] + "_|\n"
+              out += "|_" + lines[i+1] + "_"
+            re_obj = re.search(r"^## Amplitude", lines[i])
+            if re_obj:
+              print(lines[i+1])
+              out += "|" + lines[i+1] + "|\n"
   output_file = codecs.open(cfg_matrix_name, "w", encoding="utf-8",  errors="xmlcharrefreplace" )
   output_file.write(out)
   

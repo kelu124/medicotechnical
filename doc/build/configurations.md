@@ -20,8 +20,8 @@
 |`ITF-N_cc_motor_pwm`|_CC motor pwm_|[0v, 5v]|
 |`ITF-N_stepper_b2`|_Stepper motor B2 signal_|[-5v, 5v]|
 |`ITF-O_cc_motor_encoder`|_CC motor incremental encoder_|[0v, 5v]|
-|`ITF-N_stepper_b1`|_Stepper motor B1 signal_|[-5v, 5v]|
-|`ITF-N_stepper_a1`|_Stepper motor A1 signal_|[-5v, 5v]|
-|`ITF-N_stepper_a2`|_Stepper motor A2 signal_|[-5v, 5v]|
+|`ITF-O_stepper_b1`|_Stepper motor B1 signal_|[-5v, 5v]|
+|`ITF-P_stepper_a1`|_Stepper motor A1 signal_|[-5v, 5v]|
+|`ITF-Q_stepper_a2`|_Stepper motor A2 signal_|[-5v, 5v]|
 |`ITF-R_reserved`|_reserved track_||
 |`ITF-S_3_3v`|_3.3v alimentation_|[3.3v, 3.3v]|

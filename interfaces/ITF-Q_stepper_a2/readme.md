@@ -1,4 +1,4 @@
-# [ITF-N_stepper_a2]()  interface
+# [ITF-Q_stepper_a2]()  interface
 
 ## Title
 Stepper motor A2 signal

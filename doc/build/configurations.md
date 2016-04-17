@@ -2,8 +2,8 @@
 
 ## Interfaces
 
-| Name | Title |
-|------|-------|
+| Name | Title | Amplitude |
+|------|-------|-----------|
 |`ITF-A_gnd`|_Ground_|[0v, 0v]|
 |`ITF-B_5v`|_5v alimentation_|[5v, 5v]|
 |`ITF-C_amplified_raw_signal`|_Amplified raw signal_|[0v, 2v]|

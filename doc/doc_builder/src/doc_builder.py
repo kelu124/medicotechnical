@@ -31,8 +31,8 @@ if __name__ == "__main__":
   print("Documentation builder start :")
   out="# Configuration matrix\n\n"
   out+="## Interfaces\n\n"
-  out+="| Name | Title |\n"
-  out+="|------|-------|\n"
+  out+="| Name | Title | Amplitude |\n"
+  out+="|------|-------|-----------|\n"
   for root, dirs, files in os.walk(rootPath):
       for filename in fnmatch.filter(files, pattern):
           full_path = os.path.join(root, filename)

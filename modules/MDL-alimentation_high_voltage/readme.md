@@ -1,5 +1,5 @@
 # [MDL-alimentation_high_voltage]() module
-![](viewme.jpg)
+![](viewme.jpg =320x200)
 
 ## Title
 High voltage (-100v) alimentation

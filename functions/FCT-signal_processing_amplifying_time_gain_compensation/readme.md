@@ -1,5 +1,8 @@
-# [FCT-signal_processing_amplifying_time_gain_compensation]() function
+# Function
 ![](viewme.jpg)
+
+## Name
+[`FCT-signal_processing_amplifying_time_gain_compensation`]()
 
 ## Title
 Amplifying time gain compensation
@@ -8,4 +11,4 @@ Amplifying time gain compensation
 amplification inversement exponentielle à la pronfondeur
 
 ## Main function
-[FCT-signal_processing](../FCT-signal_processing)
+[`FCT-signal_processing`](../FCT-signal_processing)

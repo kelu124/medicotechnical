@@ -1,4 +1,7 @@
-# [doc_builder]() script
+# Script
+
+## Name
+[`doc_builder`]()
 
 ## Title
 Documentation builder

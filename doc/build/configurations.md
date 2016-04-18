@@ -4,8 +4,8 @@
 
 | Name | Title | Amplitude |
 |------|-------|-----------|
-|`ITF-A_gnd`|_Ground_|[0v, 0v]|
-|`ITF-B_5v`|_5v alimentation_|[5v, 5v]|
+|[`ITF-A_gnd`](../../functions/ITF-A_gnd "Ground")|_Ground_|[0v, 0v]|
+|[`ITF-B_5v`](../../functions/ITF-B_5v "5v alimentation")|_5v alimentation_|[5v, 5v]|
 |`ITF-C_amplified_raw_signal`|_Amplified raw signal_|[0v, 2v]|
 |`ITF-D_amplified_filtered_signal`|_Amplified filtered signal_|[0v, 2v]|
 |`ITF-E_signal_envelope`|_Signal envelope_|[0v, 2v]|

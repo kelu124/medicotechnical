@@ -5,23 +5,10 @@ import fnmatch
 import os
 import os.path
 import codecs
-import markdown
+# import markdown
 import sys
 import string
 import re
- 
-#def print_fnmatches(pattern, dir, files):
-#    for filename in files:
-#        if fnmatch(filename, pattern):
-#            full_path = os.path.join(dir, filename)
-#            print(full_path)
-#            if fnmatch(filename, "readme.md"):
-#              input_file = codecs.open(full_path, mode="r", encoding="utf-8")
-#              text = input_file.read()
-##              text = open(full_path, encoding='utf-8').read()
-##              text = open(full_path).read()
-#              html = markdown.markdown(text)
-#              print(html)
  
 if __name__ == "__main__":
   rootPath = '../../../interfaces'

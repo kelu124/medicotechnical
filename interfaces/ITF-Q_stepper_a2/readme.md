@@ -1,4 +1,7 @@
-# [ITF-Q_stepper_a2]()  interface
+# Interface
+
+## Name
+[`ITF-Q_stepper_a2`]()
 
 ## Title
 Stepper motor A2 signal

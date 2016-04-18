@@ -29,8 +29,8 @@ if __name__ == "__main__":
           lines = text.splitlines()
 #            html = markdown.markdown(text)
           for i in range(0, len(lines)-1):
-            re_obj = re.search(r"^# ?\[(ITF-.+)\]", lines[i])
-            if re_obj: itf_name = re_obj.group(1)
+            re_obj = re.search(r"^## Name", lines[i])
+            if re_obj: itf_name = re.search(r"\[`(ITF-.+)`\]", lines[i+1]).group(1)
               
             re_obj = re.search(r"^## Title", lines[i])
             if re_obj: itf_title = lines[i+1]

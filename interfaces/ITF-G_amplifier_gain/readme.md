@@ -1,4 +1,7 @@
-# [ITF-G_amplifier_gain]()  interface
+# Interface
+
+## Name
+[`ITF-G_amplifier_gain`]()
 
 ## Title
 Amplifier gain

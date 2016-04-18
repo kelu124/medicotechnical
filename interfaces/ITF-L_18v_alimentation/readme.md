@@ -1,4 +1,7 @@
-# [ITF-L_18v_alimentation]()  interface
+# Interface
+
+## Name
+[`ITF-L_18v_alimentation`]()
 
 ## Title
 18v external alimentation

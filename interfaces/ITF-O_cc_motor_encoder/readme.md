@@ -1,4 +1,7 @@
-# [ITF-O_cc_motor_encoder]()  interface
+# Interface
+
+## Name
+[`ITF-O_cc_motor_encoder`]()
 
 ## Title
 CC motor incremental encoder

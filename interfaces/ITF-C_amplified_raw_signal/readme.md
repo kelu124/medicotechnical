@@ -1,4 +1,7 @@
-# [ITF-C_amplified_raw_signal]()  interface
+# Interface
+
+## Name
+[`ITF-C_amplified_raw_signal`]()
 
 ## Title
 Amplified raw signal

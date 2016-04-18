@@ -1,4 +1,7 @@
-# [ITF-N_cc_motor_pwm]()  interface
+# Interface
+
+## Name
+[`ITF-N_cc_motor_pwm`]()
 
 ## Title
 CC motor pwm

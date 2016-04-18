@@ -40,20 +40,22 @@ if __name__ == "__main__":
           input_file = codecs.open(full_path, mode="r", encoding="utf-8")
           text = input_file.read()
           lines = text.splitlines()
-#          html = markdown.markdown(text)
+#            html = markdown.markdown(text)
           for i in range(0, len(lines)-1):
             re_obj = re.search(r"^# ?\[(ITF-.+)\]", lines[i])
             if re_obj:
-              print(re_obj.group(1))
-              out += "|`" + re_obj.group(1) + "`"
+              itf_name = re_obj.group(1)
+              
             re_obj = re.search(r"^## Title", lines[i])
             if re_obj:
-              print(lines[i+1])
-              out += "|_" + lines[i+1] + "_"
+               itf_title = lines[i+1]
+
             re_obj = re.search(r"^## Amplitude", lines[i])
             if re_obj:
-              print(lines[i+1])
-              out += "|" + lines[i+1] + "|\n"
+              itf_amplitude = lines[i+1]
+
+          out += "|[`" + itf_name + "`](../../functions/" + itf_name + " \"" + itf_title + "\")|_" + itf_title + "_|" + itf_amplitude + "|\n"""
+
   output_file = codecs.open(cfg_matrix_name, "w", encoding="utf-8",  errors="xmlcharrefreplace" )
   output_file.write(out)
   

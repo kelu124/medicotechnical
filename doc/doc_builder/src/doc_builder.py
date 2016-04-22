@@ -6,40 +6,84 @@ import os
 import os.path
 import codecs
 # import markdown
-import sys
-import string
+# import sys
+# import string
 import re
- 
-if __name__ == "__main__":
-  rootPath = '../../../interfaces'
-  pattern = '*.md'
-  cfg_matrix_name = '../../build/configurations.md'
 
-  print("Documentation builder start :")
-  out="# Configuration matrix\n\n"
-  out+="## Interfaces\n\n"
-  out+="| Name | Title | Amplitude |\n"
-  out+="|------|-------|-----------|\n"
+repo_dir = "../../../"
+interfaces_col = "interfaces"
+default_doc = "readme.md"
+
+doc_build_dir = "../../build/"
+cfg_matrix_name = doc_build_dir + "configurations.md"
+
+#-------------------------------------------------------------------------------
+def collection(name):
+  rootPath = repo_dir + name
+  pattern = default_doc
+  ret=[]
   for root, dirs, files in os.walk(rootPath):
-      for filename in fnmatch.filter(files, pattern):
-          full_path = os.path.join(root, filename)
-          print("\n" + full_path)
-          input_file = codecs.open(full_path, mode="r", encoding="utf-8")
-          text = input_file.read()
-          lines = text.splitlines()
-#            html = markdown.markdown(text)
-          for i in range(0, len(lines)-1):
-            re_obj = re.search(r"^## Name", lines[i])
-            if re_obj: itf_name = re.search(r"\[`(ITF-.+)`\]", lines[i+1]).group(1)
-              
-            re_obj = re.search(r"^## Title", lines[i])
-            if re_obj: itf_title = lines[i+1]
+    for filename in fnmatch.filter(files, pattern):
+      full_path = os.path.join(root, filename)
+      ret += [full_path]
+  return ret
 
-            re_obj = re.search(r"^## Amplitude", lines[i])
-            if re_obj: itf_amplitude = lines[i+1]
+#-------------------------------------------------------------------------------
+def md_parse(text):
+  lines = text.splitlines()
+  dom = {}
+  context = dom
+  for i in range(0, len(lines)-1):
+    re_obj = re.search(r"^# Interface", lines[i])
+    if re_obj:
+      context["interface"]={}
+      context=context["interface"]
 
-          out += "|[`" + itf_name + "`](../../interfaces/" + itf_name + " \"" + itf_title + "\")|_" + itf_title + "_|" + itf_amplitude + "|\n"""
+    re_obj = re.search(r"^## Name", lines[i])
+    if re_obj:
+      context["name"]= re.search(r"\[`(ITF-.+)`\]", lines[i+1]).group(1)
 
+    re_obj = re.search(r"^## Title", lines[i])
+    if re_obj:
+      context["title"]= lines[i+1]
+
+    re_obj = re.search(r"^## Amplitude", lines[i])
+    if re_obj:
+      context["amplitude"]= lines[i+1]
+    
+  return dom
+
+#-------------------------------------------------------------------------------
+def doc(name):
+  input_file = codecs.open(name, mode="r", encoding="utf-8")
+  text = input_file.read()
+  dom = md_parse(text)
+  return dom
+
+#-------------------------------------------------------------------------------
+def store(name, text):
   output_file = codecs.open(cfg_matrix_name, "w", encoding="utf-8",  errors="xmlcharrefreplace" )
-  output_file.write(out)
+  output_file.write(text)
+  return name
+
+#-------------------------------------------------------------------------------
+if __name__ == "__main__":
+  print("Documentation builder start :")
+
+  md ="# Interfaces table\n\n"
+  md+="| Name | Title | Amplitude |\n"
+  md+="|------|-------|-----------|\n"
   
+  doc_names = collection(interfaces_col)
+  for doc_name in doc_names:
+    print("<<< " + doc_name)
+    dom = doc(doc_name)
+    print(dom)
+    n = dom["interface"]["name"]
+    t = dom["interface"]["title"]
+    a = dom["interface"]["amplitude"]
+    md += '|[`{name}`](../../interfaces/{name} "{title}")|_{title}_|{amplitude}|\n'.format(
+          name=n, title=t, amplitude=a)
+
+  store(cfg_matrix_name, md)
+  print(">>>\n" + md)

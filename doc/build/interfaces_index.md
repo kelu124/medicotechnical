@@ -1,9 +1,7 @@
-
 # Interfaces table
 
 | Name | Title | Amplitude |
 |------|-------|-----------|
-
 |[`ITF-A_gnd`](../../interfaces/ITF-A_gnd "Ground")|_Ground_|[0V]|
 |[`ITF-B_5v`](../../interfaces/ITF-B_5v "5V alimentation")|_5V alimentation_|[5V, 5V]|
 |[`ITF-C_amplified_raw_signal`](../../interfaces/ITF-C_amplified_raw_signal "Amplified raw signal")|_Amplified raw signal_|[0V, 2.5V]|

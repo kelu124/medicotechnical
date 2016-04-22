@@ -91,7 +91,7 @@ def get(dic, key):
 if __name__ == "__main__":
   print("Documentation builder start :")
 
-  md = """
+  md = """\
 # Interfaces table
 
 | Name | Title | Amplitude |
@@ -114,12 +114,12 @@ if __name__ == "__main__":
       err_msg="interface/amplitude"; 
     except KeyError:
       print "### Missing header " + err_msg
-      md += """
+      md += """\
 |[`{ref}`](../../interfaces/{ref} "{title}")|_{title}_|{amplitude}|
 """   .format(ref="###", title="###", amplitude="###")
     else:
-      md += """
-|[`{ref}`](../../interfaces/{ref} "{title}")|_{title}_|{amplitude}|\
+      md += """\
+|[`{ref}`](../../interfaces/{ref} "{title}")|_{title}_|{amplitude}|
 """   .format(ref=r, title=t, amplitude=a)
 
   store(cfg_matrix_name, md)

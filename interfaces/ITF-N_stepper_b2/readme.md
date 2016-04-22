@@ -7,6 +7,6 @@
 Stepper motor B2 signal
 
 ## Amplitude
-[-5v, 5v]
+[-5V, 5V]
 
 ## Description

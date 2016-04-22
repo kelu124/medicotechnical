@@ -4,9 +4,9 @@
 [`ITF-B_5v`]()
 
 ## Title
-5v alimentation
+5V alimentation
 
 ## Amplitude
-[5v, 5v]
+[5V, 5V]
 
 ## Description

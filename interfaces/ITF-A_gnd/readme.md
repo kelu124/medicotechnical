@@ -7,6 +7,6 @@
 Ground
 
 ## Amplitude
-[0v, 0v]
+[0V]
 
 ## Description

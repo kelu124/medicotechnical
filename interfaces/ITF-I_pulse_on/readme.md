@@ -7,6 +7,6 @@
 Pulse on
 
 ## Amplitude
-[0v, 5v]
+[0V, 3.3V-5V]
 
 ## Description

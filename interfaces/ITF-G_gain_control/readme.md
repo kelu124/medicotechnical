@@ -1,12 +1,12 @@
 # Interface
 
 ## Name
-[`ITF-G_amplifier_gain`]()
+[`ITF-G_gain_control`]()
 
 ## Title
 Amplifier gain
 
 ## Amplitude
-[0v, 1v]
+[0V, 1V]
 
 ## Description

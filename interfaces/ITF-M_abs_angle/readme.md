@@ -7,4 +7,4 @@
 Absolute tranducer position
 
 ## Amplitude
-[0v, 5v]
+[0V, 5V]

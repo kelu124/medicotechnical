@@ -7,6 +7,6 @@
 Signal envelope
 
 ## Amplitude
-[0v, 2v]
+[0V, 2.5V]
 
 ## Description

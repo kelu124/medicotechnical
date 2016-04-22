@@ -4,9 +4,9 @@
 [`ITF-L_18v_alimentation`]()
 
 ## Title
-18v external alimentation
+18V external alimentation
 
 ## Amplitude
-[15v, 20v]
+[15V, 20V]
 
 ## Description

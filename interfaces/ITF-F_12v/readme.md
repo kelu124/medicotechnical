@@ -4,9 +4,9 @@
 [`ITF-F_12v`]()
 
 ## Title
-12v alimentation
+12V alimentation
 
 ## Amplitude
-[12v, 12v]
+[12V, 12V]
 
 ## Description

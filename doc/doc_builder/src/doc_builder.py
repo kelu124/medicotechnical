@@ -11,7 +11,7 @@ interfaces_col = "interfaces"
 default_doc = "readme.md"
 
 doc_build_dir = "../../build/"
-cfg_matrix_name = doc_build_dir + "interfaces_index.md"
+interfaces_index = doc_build_dir + "interfaces_index.md"
 
 #-------------------------------------------------------------------------------
 def sanitize(txt):
@@ -71,7 +71,7 @@ def doc(name):
 
 #-------------------------------------------------------------------------------
 def store(name, text):
-  output_file = codecs.open(cfg_matrix_name, "w", encoding="utf-8",  errors="xmlcharrefreplace" )
+  output_file = codecs.open(interfaces_index, "w", encoding="utf-8",  errors="xmlcharrefreplace" )
   output_file.write(text)
   return name
 
@@ -97,9 +97,7 @@ if __name__ == "__main__":
 | Name | Title | Amplitude |
 |------|-------|-----------|
 """
-  
-  doc_names = collection(interfaces_col)
-  for doc_name in doc_names:
+  for doc_name in collection(interfaces_col):
     print("<<< " + doc_name)
     dom = doc(doc_name)
     print(dom["###"])
@@ -108,19 +106,8 @@ if __name__ == "__main__":
     t = sanitize(  get(get(root, "title"), ""))
     a = sanitize(  get(get(root, "amplitude"), ""))
     
-    try:
-      err_msg="interface/name";      
-      err_msg="interface/title";     
-      err_msg="interface/amplitude"; 
-    except KeyError:
-      print "### Missing header " + err_msg
-      md += """\
-|[`{ref}`](../../interfaces/{ref} "{title}")|_{title}_|{amplitude}|
-"""   .format(ref="###", title="###", amplitude="###")
-    else:
-      md += """\
-|[`{ref}`](../../interfaces/{ref} "{title}")|_{title}_|{amplitude}|
-"""   .format(ref=r, title=t, amplitude=a)
+    md += '|[`{ref}`](../../interfaces/{ref} "{title}")|_{title}_|{amplitude}|\n'.format(
+          ref=r, title=t, amplitude=a)
 
-  store(cfg_matrix_name, md)
+  store(interfaces_index, md)
   print(">>>\n" + md)

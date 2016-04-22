@@ -1,13 +1,9 @@
-# To change this license header, choose License Headers in Project Properties.
-# To change this template file, choose Tools | Templates
-# and open the template in the editor.
+#!/usr/bin/python3
+
 import fnmatch
 import os
 import os.path
 import codecs
-# import markdown
-# import sys
-# import string
 import re
 
 repo_dir = "../../../"
@@ -15,7 +11,22 @@ interfaces_col = "interfaces"
 default_doc = "readme.md"
 
 doc_build_dir = "../../build/"
-cfg_matrix_name = doc_build_dir + "configurations.md"
+cfg_matrix_name = doc_build_dir + "interfaces_index.md"
+
+#-------------------------------------------------------------------------------
+def sanitize(txt):
+  txt = re.sub(r"\s+", " ", txt).strip()
+  return txt
+
+#-------------------------------------------------------------------------------
+def search_node_name(txt):
+  txt = sanitize(txt).lower()
+  txt = re.sub(r"\W+", "_", txt)
+  return txt
+
+#-------------------------------------------------------------------------------
+def search_ref(txt):
+  return re.search(r"([A-Z][A-Z][A-Z]-[\w_]+)", txt).group(1)
 
 #-------------------------------------------------------------------------------
 def collection(name):
@@ -31,26 +42,24 @@ def collection(name):
 #-------------------------------------------------------------------------------
 def md_parse(text):
   lines = text.splitlines()
-  dom = {}
+  dom = {"":"", "###":""}
   context = dom
+  cur_level = 0
   for i in range(0, len(lines)-1):
-    re_obj = re.search(r"^# Interface", lines[i])
+    li = lines[i]
+    re_obj = re.match(r" *(#+)(.+)", li)
     if re_obj:
-      context["interface"]={}
-      context=context["interface"]
-
-    re_obj = re.search(r"^## Name", lines[i])
-    if re_obj:
-      context["name"]= re.search(r"\[`(ITF-.+)`\]", lines[i+1]).group(1)
-
-    re_obj = re.search(r"^## Title", lines[i])
-    if re_obj:
-      context["title"]= lines[i+1]
-
-    re_obj = re.search(r"^## Amplitude", lines[i])
-    if re_obj:
-      context["amplitude"]= lines[i+1]
-    
+      new_level = len(re_obj.group(1))
+      node_name = search_node_name(re_obj.group(2))
+      if new_level > cur_level + 1:
+        dom["###"] += "#Error : level mismatch on line " + str(i) + " :\n    " + li + "\n"
+      else:
+        for lev in range(new_level, cur_level+1): context=context[".."]
+        context[node_name]={"..":context, "":""}
+        context=context[node_name]
+        cur_level=new_level
+    else:
+      context[""] += li + "\n"
   return dom
 
 #-------------------------------------------------------------------------------
@@ -67,23 +76,51 @@ def store(name, text):
   return name
 
 #-------------------------------------------------------------------------------
+def get(dic, key):
+  
+    try:
+      val = dic[key]
+    except KeyError:
+      print "#Error : missing header " + key
+      val = "###"
+    except :
+      val = "###"
+    return val
+
+#-------------------------------------------------------------------------------
 if __name__ == "__main__":
   print("Documentation builder start :")
 
-  md ="# Interfaces table\n\n"
-  md+="| Name | Title | Amplitude |\n"
-  md+="|------|-------|-----------|\n"
+  md = """
+# Interfaces table
+
+| Name | Title | Amplitude |
+|------|-------|-----------|
+"""
   
   doc_names = collection(interfaces_col)
   for doc_name in doc_names:
     print("<<< " + doc_name)
     dom = doc(doc_name)
-    print(dom)
-    n = dom["interface"]["name"]
-    t = dom["interface"]["title"]
-    a = dom["interface"]["amplitude"]
-    md += '|[`{name}`](../../interfaces/{name} "{title}")|_{title}_|{amplitude}|\n'.format(
-          name=n, title=t, amplitude=a)
+    print(dom["###"])
+    root = get(dom, "interface")
+    r = search_ref(get(get(root, "name"), ""))
+    t = sanitize(  get(get(root, "title"), ""))
+    a = sanitize(  get(get(root, "amplitude"), ""))
+    
+    try:
+      err_msg="interface/name";      
+      err_msg="interface/title";     
+      err_msg="interface/amplitude"; 
+    except KeyError:
+      print "### Missing header " + err_msg
+      md += """
+|[`{ref}`](../../interfaces/{ref} "{title}")|_{title}_|{amplitude}|
+"""   .format(ref="###", title="###", amplitude="###")
+    else:
+      md += """
+|[`{ref}`](../../interfaces/{ref} "{title}")|_{title}_|{amplitude}|\
+"""   .format(ref=r, title=t, amplitude=a)
 
   store(cfg_matrix_name, md)
   print(">>>\n" + md)

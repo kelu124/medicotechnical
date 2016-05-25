@@ -1,11 +1,11 @@
-# Module: Tobo
+# Module:
 ![](viewme.png)
 
 ## Name
 [`MDL-tobo_hvpulser`]()
 
 ## Title
-Tobo
+Tobo HV-Pulser
 
 ## Description
 * The HV-Pulser of the echOmods
@@ -31,6 +31,10 @@ Tobo
 * [`ITF-mET_SMA`](../../interfaces/ITF-mET_SMA) : for the signal coming out to the signal processing (if through SMA)
 * [`ITF-mET_Transducer`](../../interfaces/ITF-mET_Transducer) : for the signal coming out of the pulser (if through SMA)
 
+## Key Components
+
+* `HV7360`
+* `R05-100B`
 
 ## Information
 
@@ -47,11 +51,6 @@ The aim of this echOmod is to get the HV Pulse done.
 * [`ITF-B_5v`](../../interfaces/ITF-B_5v)->`R05-100B`->`HV7360`->[`ITF-mET_Transducer`](../../interfaces/ITF-mET_Transducer)
 * [`ITF-mET_Transducer`](../../interfaces/ITF-mET_Transducer)->[`ITF-mET_SMA`](../../interfaces/ITF-mET_SMA)
 * [`ITF-mET_Transducer`](../../interfaces/ITF-mET_Transducer)->[`ITF-R_reserved`](../../interfaces/ITF-R_reserved)
-
-## Key Components
-
-* `HV7360`
-* `R05-100B`
 
 ## Pros & Cons
 

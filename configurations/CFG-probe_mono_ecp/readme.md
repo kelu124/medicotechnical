@@ -7,8 +7,6 @@
 ## Title
 Probe mono frequency produced by echOpen
 
-## Description
-
 ## Uses
 * [`MDL-alimentation_high_voltage`](../../modules/MDL-alimentation_high_voltage)
 * [`MDL-alimentation_low_voltage`](../../modules/MDL-alimentation_low_voltage)
@@ -16,3 +14,4 @@ Probe mono frequency produced by echOpen
 * [`MDL-mechanism_cc_motor_mono`](../../modules/MDL-mechanism_cc_motor_mono)
 * [`MDL-pulser`](../../modules/MDL-pulser)
 
+## Description

@@ -40,7 +40,7 @@ The aim of this echOmod is to get the HV Pulse done.
 
 ### How does it work: block diagram
 
-![Block schema](/tobo/source/blocks.png)
+![Block schema](source/blocks.png)
 
 * [`ITF-I_pulse_on`](../../interfaces/ITF-I_pulse_on)->`HV7360`
 * [`ITF-J_pulse_off`](../../interfaces/ITF-J_pulse_off)->`HV7360`
